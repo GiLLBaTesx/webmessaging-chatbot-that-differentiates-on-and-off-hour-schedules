@@ -1,23 +1,158 @@
-<html>
-<header>
-  <script type="text/javascript" charset="utf-8">
-    (function (g, e, n, es, ys) {
-      g['_genesysJs'] = e;
-      g[e] = g[e] || function () {
-        (g[e].q = g[e].q || []).push(arguments)
-      };
-      g[e].t = 1 * new Date();
-      g[e].c = es;
-      ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-    })(window, 'Genesys', '${genesyscloud_scripting_url}/genesys-bootstrap/genesys.min.js', {
-      environment: '${genesyscloud_scripting_env}',
-      deploymentId: '${genesyscloud_webmessaging_deploymentid}'
-    });
-  </script>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Messaging Demo with Genesys Cloud">
+    <title>Customer Support - Web Messaging</title>
+
+    <!-- Genesys Web Messaging Widget -->
+    <script type="text/javascript" charset="utf-8">
+        (function (g, e, n, es, ys) {
+            g['_genesysJs'] = e;
+            g[e] = g[e] || function () {
+                (g[e].q = g[e].q || []).push(arguments)
+            };
+            g[e].t = 1 * new Date();
+            g[e].c = es;
+            ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+        })(window, 'Genesys', '${genesyscloud_scripting_url}/genesys-bootstrap/genesys.min.js', {
+            environment: '${genesyscloud_scripting_env}',
+            deploymentId: '${genesyscloud_webmessaging_deploymentid}'
+        });
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --background-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .cx-widget.cx-theme-light {
+            bottom: 20px !important;
+        }
+    </style>
+</head>
 
 <body>
-  <H1>My example web messaging page</H1>
-</body>
+    <header>
+        <h1>Welcome to Our Customer Support</h1>
+        <p>We're here to help you during business hours</p>
+    </header>
 
+    <main>
+        <section class="content-section">
+            <h2>How Can We Help You?</h2>
+            <p>Start a conversation with our support team using the chat widget in the bottom right corner.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Customer Support</h3>
+                    <p>Available during business hours via Web Chat</p>
+                    <p>Email: support@example.com</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: ${business_hours_start} - ${business_hours_end}</p>
+                    <p>Saturday: Closed</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Genesys Widget Configuration -->
+        <script>
+            window.addEventListener('genesys.ready', function(e) {
+                Genesys('command', 'Messenger.open', {},
+                    function(o){
+                        console.log('Messenger opened:', o);
+                    },
+                    function(e){
+                        console.error('Error opening Messenger:', e);
+                    }
+                );
+
+                Genesys('command', 'Messenger.updateConfig', {
+                    'launcher': {
+                        'enabled': true,
+                        'message': 'Need help? Chat with us!'
+                    },
+                    'theme': {
+                        'primaryColor': '#007bff',
+                        'messageTextColor': '#000000'
+                    }
+                });
+            });
+
+            window.addEventListener('genesys.error', function(e) {
+                console.error('Genesys Error:', e.detail);
+            });
+        </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+</body>
 </html>

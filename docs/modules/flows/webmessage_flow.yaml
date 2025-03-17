@@ -1,5 +1,5 @@
 inboundShortMessage:
-  name: chat_bot_hours_differentiator
+  name: hours_differentiator_webmessage_flow
   description: A web messaging flow that evaluates schedule and routes to a user with important customer information
   division: New Home
   startUpRef: '/inboundShortMessage/states/state[Initial State_11]'
@@ -49,7 +49,7 @@ inboundShortMessage:
                         name: Transfer to ACD
                         targetQueue:
                           lit:
-                            name: chat11
+                            name: '{{on_hours_queue_name}}'
                         priority:
                           lit: 0
                         preferredAgents:
@@ -94,7 +94,7 @@ inboundShortMessage:
               name: Transfer to ACD
               targetQueue:
                 lit:
-                  name: '{{acd_queue_name}}'
+                  name: '{{off_hours_queue_name}}'
               priority:
                 lit: 0
               preferredAgents:

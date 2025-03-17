@@ -8,9 +8,14 @@ variable "environment" {
   description = "Name of the environment, e.g., dev, test, stable, staging, uat, prod etc."
 }
 
-variable "queueName" {
+variable "onHoursQueueName" {
   type = string 
-  description= "Name of queue of which bot transfers customer to"
+  description= "Name of queue of which bot transfers customer to if customer reach out during on hours"
+}
+
+variable "offHoursQueueName" {
+  type = string 
+  description= "Name of queue of which bot transfers customer to if customer reach out during off hours"
 }
 
 variable "scheduleName" {

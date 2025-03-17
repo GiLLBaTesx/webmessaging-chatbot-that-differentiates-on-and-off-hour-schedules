@@ -10,5 +10,5 @@ variable "environment" {
 
 variable "flowId" {
   type        = string
-  description = "Flow id to associate with widget"
+  description = "Flow id to associate with web deployment"
 }
