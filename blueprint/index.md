@@ -120,6 +120,9 @@ After the chat bot is deployed to your environment, use the Genesys Cloud Web ch
 3. Click **Start Chat**. Genesys Cloud routes the interaction to an agent or a chat bot depending on the time of day and based on the schedule resource that Terraform created. If Genesys Cloud routes the interaction to a chat bot, the bot responds with "Ask me a question about your order".
 4. Enter your question.
 5. When prompted, enter your five-digit order number.
+6. Alternatively, you can skip steps 1 - 5 by running the index.html file in `docs\web` folder in your browser
+
+![Test your deployed web messenger](images/sampleSite.png 'Test your deployed web messenger')
 
 The agent receives the information that you provided to the chat bot in a script. If you receive this information, the chat bot successfully fetched it from the customer and routed the conversation to the agent.
 
