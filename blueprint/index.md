@@ -7,12 +7,11 @@ category: 4
 summary: |
   This Genesys Cloud Developer Blueprint builds an Architect flow that evaluates a schedule, builds a chat bot and routes customer interactions to it when agents are offline. The chat bot stores relevant customer information and transfers the information to an agent using a script. You deploy all the components in this solution with Terraform, and the Terraform Genesys Cloud CX as Code provider.
 ---
-
-:::{"alert":"primary","title":"About Genesys Cloud Blueprints","autoCollapse":false}
-Genesys Cloud blueprints were built to help you jump-start building an application or integrating with a third-party partner.
+:::{"alert":"primary","title":"About Genesys Cloud Blueprints","autoCollapse":false} 
+Genesys Cloud blueprints were built to help you jump-start building an application or integrating with a third-party partner. 
 Blueprints are meant to outline how to build and deploy your solutions, not a production-ready turnkey solution.
-
-For more information about Genesys Cloud blueprint support and practices,
+ 
+For more information about Genesys Cloud blueprint support and practices, 
 see our Genesys Cloud blueprint [FAQ](https://developer.genesys.cloud/blueprints/faq) sheet.
 :::
 
@@ -70,7 +69,7 @@ This blueprint explains how to use the following Genesys Cloud capabilities:
 
 ### Clone the Github repository
 
-Clone the [webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules](https://github.com/GenesysCloudBlueprints/webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules 'Opens the webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules repository in GitHub') Github repository on your local machine.
+Clone the [webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules](https://github.com/GenesysCloudBlueprints/webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules "Opens the webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules repository in GitHub") Github repository on your local machine.
 
 ### Configure your Terraform build
 
@@ -106,9 +105,9 @@ You are now ready to run this blueprint solution for your organization.
 
 After the `terraform apply --auto-approve` command successfully completes, you see the output of the entire run along with the number of objects that Terraform successfully created. Keep the following points in mind:
 
-- This project assumes that you run this blueprint solution with a local Terraform backing state, which means that the `tfstate` files are created in the same folder where you run the project. Terraform recommends that you use local Terraform backing state files only if you run from a desktop and are comfortable with the deleted files.
+* This project assumes that you run this blueprint solution with a local Terraform backing state, which means that the `tfstate` files are created in the same folder where you run the project. Terraform recommends that you use local Terraform backing state files only if you run from a desktop and are comfortable with the deleted files.
 
-- As long as you keep your local Terraform backing state projects, you can tear down this blueprint solution. To tear down the solution, change to the `docs/terraform` folder and issue the `terraform destroy --auto-approve` command. This command destroys all objects that the local Terraform backing state currently manages.
+* As long as you keep your local Terraform backing state projects, you can tear down this blueprint solution. To tear down the solution, change to the `docs/terraform` folder and issue the `terraform destroy --auto-approve` command. This command destroys all objects that the local Terraform backing state currently manages.
 
 ### Test your deployment
 
@@ -126,7 +125,7 @@ The agent receives the information that you provided to the chat bot in a script
 
 ## Additional resources
 
-- [Genesys Cloud Web messaging and Messenger](https://developer.genesys.cloud/commdigital/digital/webmessaging/ 'Opens the Web messaging and Messenger page in the Genesys Cloud Developer Center')
-- [About Web messaging](https://help.mypurecloud.com/articles/about-web-messaging/ 'Opens the About Web messaging article in the Genesys Cloud Resource Center')
+- [Genesys Cloud Web messaging and Messenger](https://developer.genesys.cloud/commdigital/digital/webmessaging/ "Opens the Web messaging and Messenger page in the Genesys Cloud Developer Center")
+- [About Web messaging](https://help.mypurecloud.com/articles/about-web-messaging/ "Opens the About Web messaging article in the Genesys Cloud Resource Center")
 - [Genesys Cloud Terraform provider documentation](https://registry.terraform.io/providers/MyPureCloud/genesyscloud/latest/docs 'Goes to the Genesys Cloud provider page in the Terraform documentation')
-- [Github repository for the Build a web messaging chat bot that differentiates between chats depending on whether agents are offline or not Blueprint](https://github.com/GenesysCloudBlueprints/webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules/ 'Opens the Github repository for the Build a web messaging chat bot that differentiates between chats depending on whether agents are offline or not Blueprint')
+- [Github repository for the Build a web messaging chat bot that differentiates between chats depending on whether agents are offline or not Blueprint](https://github.com/GenesysCloudBlueprints/webmessaging-chatbot-that-differentiates-on-and-off-hour-schedules/ "Opens the Github repository for the Build a web messaging chat bot that differentiates between chats depending on whether agents are offline or not Blueprint")
