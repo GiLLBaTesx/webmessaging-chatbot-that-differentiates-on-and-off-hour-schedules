@@ -42,3 +42,13 @@ variable "genesysCloudScriptEnv"{
      type       = string
     description = "genesys cloud script environment"
 }
+
+variable "business_hours" {
+  type        = string
+  description = "Business hours in 24-hour format '10:00 - 11:00'"
+  
+  validation {
+    condition     = can(regex("^([01]?[0-9]|2[0-3]):[0-5][0-9] - ([01]?[0-9]|2[0-3]):[0-5][0-9]$", var.business_hours))
+    error_message = "Business hours must be in 24-hour format like '10:00 - 11:00'. Hours must be 00-23, minutes must be 00-59"
+  }
+}

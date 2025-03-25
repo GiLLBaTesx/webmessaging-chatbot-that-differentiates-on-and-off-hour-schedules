@@ -2,7 +2,7 @@ terraform {
   required_providers {
     genesyscloud = {
       source = "mypurecloud/genesyscloud"
-      version = ">=1.17.0"
+      version = ">=1.6.0"
     }
   }
 }
@@ -14,7 +14,7 @@ resource "genesyscloud_webdeployments_deployment" "messenger_deployment" {
   allow_all_domains = true
   configuration {
     id      = "${genesyscloud_webdeployments_configuration.messagenger_config.id}"
-    version = "2"
+    version = "1"
   }
   flow_id = var.flowId
 }

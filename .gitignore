@@ -1,0 +1,5 @@
+**/web/
+**/.terraform/*
+sdk_debug.log
+terraform.tfstate
+terraform.tfstate.backup

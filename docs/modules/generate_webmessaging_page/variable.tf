@@ -13,3 +13,13 @@ variable "genesyscloud_webmessaging_deploymentid" {
   type        = string
   description = "Deployment id of the webmessaging script"
 }
+
+variable "startTime" {
+  type        = string
+  description = "start time of business hours"
+}
+
+variable "endTime" {
+  type        = string
+  description = "end time of business hours"
+}
