@@ -2,7 +2,7 @@ terraform {
   required_providers {
     genesyscloud = {
       source = "mypurecloud/genesyscloud"
-      # version = ">=1.6.0"
+      version = ">=1.6.0"
     }
   }
 }
@@ -20,4 +20,5 @@ resource "genesyscloud_flow" "webmessage_schedule_hours" {
 #Bot flow
 resource "genesyscloud_flow" "webmessage_bot" {
   filepath          = "${path.module}/webmessage_bot_flow.yaml"
+  file_content_hash = filesha256("${path.module}/webmessage_bot_flow.yaml")
 }
